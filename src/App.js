@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+
+import {useState} from 'react';
 import './App.css';
+import React from 'react';
 
 function App() {
+  const [buttonColor, setButtonColor] = useState('red')
+  const buttonHandler = buttonColor ==='red'?'blue':'red';
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={()=>{
+        setButtonColor(buttonHandler)
+      }} style={{backgroundColor:buttonColor}}>Change to {buttonHandler}</button>
     </div>
   );
 }
